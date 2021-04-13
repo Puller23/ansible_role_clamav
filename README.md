@@ -35,4 +35,4 @@ MIT / BSD
 Author Information
 ------------------
 
-This role was created in 2021 by Gregor Bartels
+This role was created in 2021 by Gregor Bartels.
