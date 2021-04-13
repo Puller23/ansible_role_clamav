@@ -1,12 +1,12 @@
+---
+dependencies: []
+
 galaxy_info:
-  author: puller23
   role_name: clamav
-  description:  ClamAV for Linux hosts.
-
-  license: license (MIT)
-
-  min_ansible_version: 2.1
-
+  author: puller23
+  description: ClamAV for Linux hosts.
+  license: "license (MIT)"
+  min_ansible_version: 2.4
   galaxy_tags:
     - networking
     - cloud
@@ -14,5 +14,3 @@ galaxy_info:
     - antivirus
     - antimalware
     - scan
-
-  dependencies: []
