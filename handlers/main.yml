@@ -1,2 +1,10 @@
 ---
-# handlers file for puller23.clamav
+  - name: restart clamav
+    service:
+      name: "{{ clamav_daemon }}"
+      state: restarted
+
+  - name: restart freshclam
+    service:
+      name: "{{ freshclam_daemon }}"
+      state: restarted

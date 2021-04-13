@@ -1,2 +1,31 @@
 ---
-# tasks file for puller23.clamav
+  - name: Ensure ClamAV packages are installed.
+    package: name={{ item }} state=present
+    with_items: "{{ __clamav_packages }}"
+    register: clamav_packages_install
+
+  - name: Copy clamav configuration in place.
+    template:
+      src: "{{ clamav_config_template }}"
+      dest: "{{ clamav_daemon_config_path }}"
+      mode: 0644
+    notify: restart clamav
+
+  - name: Copy freshclam configuration in place.
+    template:
+      src: "{{ freshclam_config_template }}"
+      dest: "{{ freshclam_config_path }}"
+      mode: 0644
+    notify: restart freshclam
+
+  - name: Ensure ClamAV daemon is running (if configured).
+    service:
+      name: "{{ clamav_daemon }}"
+      state: "{{ clamav_daemon_state }}"
+      enabled: "{{ clamav_daemon_enabled }}"
+    
+  - name: Ensure ClamAV freshclam daemon is running (if configured).
+    service:
+      name: "{{ freshclam_daemon }}"
+      state: "{{ freshclam_daemon_state }}"
+      enabled: "{{ freshclam_daemon_enabled }}"

@@ -1,2 +1,45 @@
 ---
-# defaults file for puller23.clamav
+  clamav_daemon_state: started
+  clamav_daemon_enabled: true
+  
+  # Clamav Config
+  clamav_config_template: scan.conf.j2
+  clamav_logsyslog: "yes"
+  clamav_preludeanalysername: ClamAV
+  clamav_pidfile: /var/run/clamd.scan/clamd.pid
+  clamav_tempdirectory: /var/tmp
+  clamav_databasedirectory: /var/lib/clamav
+  clamav_officialdatabaseonly: "yes"
+  clamav_localsocket: /var/run/clamd.scan/clamd.sock
+  clamav_localsocketgroup: virusgroup
+  clamav_localsocketmode: "660"
+  clamav_fixstalesocket: "yes"
+  clamav_user: clamscan
+  clamav_maxscantime: 300000
+  clamav_maxscansize: 150M
+  clamav_maxfilesize: 30M
+  clamav_maxdirectoryrecursion: 15
+  clamav_pcremaxfilesize: 25M
+  clamav_streammaxlength: 25M
+
+  clamav_additional_vars: []
+
+  freshclam_daemon_state: started
+  freshclam_daemon_enabled: true
+
+  # Freshclam Config
+  freshclam_config_template: freshclam.conf.j2
+
+  freshclam_databasedirectory: /var/lib/clamav
+  freshclam_updatelogfile: /var/log/freshclam.log
+  freshclam_logfilemaxsize: 2M
+  freshclam_logtime: "yes"
+  freshclam_logverbose: "yes"
+  freshclam_logsyslog: "yes"
+  freshclam_logrotate: "yes"
+  freshclam_pidfile: /var/run/freshclam.pid
+  freshclam_databaseowner: clamupdate
+  freshclam_databasemirror: database.clamav.net
+  freshclam_scriptedupdates: "yes"
+  freshclam_compressLocaldatabase: "no"
+  freshclam_additional_vars: []

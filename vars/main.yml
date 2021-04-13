@@ -1,2 +1,19 @@
 ---
-# vars file for puller23.clamav
+  __clamav_packages:
+    - clamav
+    - clamav-server
+    - clamav-data
+    - clamav-update 
+    - clamav-filesystem 
+    - clamav-scanner-systemd 
+    - clamav-devel 
+    - clamav-lib 
+    - clamav-server-systemd 
+    - spamassassin
+
+  clamav_daemon_config_path: /etc/clamd.d/scan.conf
+  clamav_daemon_localsocket: /var/run/clamd.scan/clamd.sock
+  clamav_daemon: clamd@scan
+
+  freshclam_daemon: clamav-freshclam
+  freshclam_config_path: /etc/freshclam.conf
