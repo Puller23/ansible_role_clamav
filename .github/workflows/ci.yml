@@ -5,6 +5,9 @@ name: CI
   push:
     branches:
       - master
+defaults:
+  run:
+    working-directory: 'puller23.clamav'
 
 jobs:
 
