@@ -1,0 +1,23 @@
+# {{ansible_managed}}
+
+LogSyslog {{ clamav_logsyslog }}
+PreludeAnalyzerName {{ clamav_preludeanalysername }}
+PidFile {{ clamav_pidfile }}
+TemporaryDirectory {{ clamav_tempdirectory }}
+DatabaseDirectory {{ clamav_databasedirectory }}
+OfficialDatabaseOnly {{ clamav_officialdatabaseonly }}
+LocalSocket {{ clamav_localsocket }}
+LocalSocketGroup {{ clamav_localsocketgroup }}
+LocalSocketMode {{ clamav_localsocketmode }}
+FixStaleSocket {{ clamav_fixstalesocket }}
+User {{ clamav_user }}
+MaxScanTime {{ clamav_maxscantime }}
+MaxScanSize {{ clamav_maxscansize }}
+MaxFileSize {{ clamav_maxfilesize }}
+MaxDirectoryRecursion {{ clamav_maxdirectoryrecursion }}
+PCREMaxFileSize {{ clamav_pcremaxfilesize }}
+StreamMaxLength {{ clamav_streammaxlength }}
+
+{% for additional_var in clamav_additional_vars %}
+  {{ additional_var }}
+{% endfor %}

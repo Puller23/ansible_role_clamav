@@ -1,0 +1,18 @@
+# {{ansible_managed}}
+
+DatabaseDirectory {{ freshclam_databasedirectory }}
+UpdateLogFile {{ freshclam_updatelogfile }}
+LogFileMaxSize {{ freshclam_logfilemaxsize }}
+LogTime {{ freshclam_logtime }}
+LogVerbose {{ freshclam_logverbose }}
+LogSyslog {{ freshclam_logsyslog }}
+LogRotate {{ freshclam_logrotate }}
+PidFile {{ freshclam_pidfile }}
+DatabaseOwner {{ freshclam_databaseowner }}
+DatabaseMirror {{ freshclam_databasemirror }}
+ScriptedUpdates {{ freshclam_scriptedupdates }}
+CompressLocalDatabase {{ freshclam_compressLocaldatabase }}
+
+{% for additional_var in freshclam_additional_vars %}
+  {{ additional_var }}
+{% endfor %}
